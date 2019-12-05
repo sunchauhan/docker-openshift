@@ -1,12 +1,12 @@
 FROM nodejs:8-RHOAR
 
 # Create app directory
-WORKDIR ${APP_ROOT}/src
+WORKDIR ./src
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY ./app/package.json ${APP_ROOT}/src
+COPY ./app/package.json ./src
 
 USER root
 
@@ -15,7 +15,7 @@ RUN npm install
 # RUN npm install --only=production
 
 # Bundle app source
-COPY ./app ${APP_ROOT}/src
+COPY ./app ./src
 
 EXPOSE 8080
 
